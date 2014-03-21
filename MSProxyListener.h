@@ -26,17 +26,80 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  The `MSProxyListener` is the proxy class, that stores weak references for listeners and forwards calls to them.
+ *  Uses `NSHashTable` instance as a container.
+ */
 @interface MSProxyListener : NSProxy
 
+/**
+ *  The internal HashTable, that stores weak references for listeners, that implement specified `protocol`.
+ */
+@property(nonatomic, strong, readonly) NSHashTable* listeners;
+
+/**
+ * The protocol all listeners should conform to.
+ */
 @property(nonatomic, strong, readonly) Protocol* protocol;
 
-+ (id)listenersProxyForProtocol:(Protocol *)protocol;
-- (id)initWithProtocol:(Protocol *)protocol;
+/**
+ *  The convenience constructor. Uses objc runtime to deduct the listener's protocol.
+ *
+ *  @return An initialized object.
+ */
++ (instancetype)proxyListener;
 
+/**
+ *  The convenience constructor.
+ *
+ *  @param protocol The protocol all listeners should conform to.
+ *
+ *  @return An initialized object.
+ */
++ (instancetype)proxyListenerForProtocol:(Protocol *)protocol;
+
+/**
+ *  The designated initializer. `protocol` can't be nil.
+ *
+ *  @param protocol The protocol all listeners should conform to.
+ *
+ *  @return An initialized object.
+ */
+- (instancetype)initWithProtocol:(Protocol *)protocol;
+
+/**
+ *  Adds a given object to the listener's container. Ignores the object, if it doesn't conform to the listener's protocol.
+ *
+ *  @param object The object to add to the listener's container.
+ */
 - (void)addObject:(id)object;
+
+/**
+ *  Removes a given object from the listener's container.
+ *
+ *  @param object The object to remove from the listener's container.
+ */
 - (void)removeObject:(id)object;
+
+/**
+ *  Removes all listeners from the container.
+ */
 - (void)removeAllObjects;
+
+/**
+ *  Tests whether the listener's container contains a given object.
+ *
+ *  @param anObject The object to test for membership in the listener's container.
+ *
+ *  @return YES if the container contains anObject, otherwise NO.
+ */
 - (BOOL)containsObject:(id)anObject;
 
-@end
+/**
+ *  Returns the number of listeners in the container.
+ *
+ *  @return The number of elements in the container.
+ */
+- (NSUInteger)count;
 
+@end

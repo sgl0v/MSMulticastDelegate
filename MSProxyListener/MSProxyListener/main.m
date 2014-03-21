@@ -30,27 +30,33 @@
 
 @protocol DelegateProtocol <NSObject>
 
-- (void)didStart:(NSString*)value key:(NSString*)key;
-- (void)didEnd:(NSString*)value key:(NSString*)key success:(BOOL)success;
+- (void)didStart:(id)sender value:(NSString*)key;
+- (void)didEnd:(id)sender value:(NSString*)key success:(BOOL)success;
 
 @end
 
-@interface SomeObj : NSObject <DelegateProtocol>
-
-@end
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wprotocol"
 
 @interface Listeners : MSProxyListener <DelegateProtocol> @end
+@implementation Listeners @end
 
-@implementation SomeObj
+#pragma clang diagnostic pop
 
-- (void)didStart:(NSString*)value key:(NSString*)key
+@interface ListenerImpl : NSObject <DelegateProtocol>
+
+@end
+
+@implementation ListenerImpl
+
+- (void)didStart:(id)sender value:(NSString*)value
 {
-    NSLog(@"call1: %@ %@", value, key);
+    NSLog(@"<%@ : %p %@> %@ %@", self.class, self, NSStringFromSelector(_cmd), sender, value);
 }
 
-- (void)didEnd:(NSString*)value key:(NSString*)key success:(BOOL)success
+- (void)didEnd:(id)sender value:(NSString*)value success:(BOOL)success
 {
-    NSLog(@"call2: %@ %@ %d", value, key, success);
+    NSLog(@"<%@ : %p %@> %@ %@ %d", self.class, self, NSStringFromSelector(_cmd), sender, value, success);
 }
 
 @end
@@ -61,20 +67,20 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
 
-        Listeners* listeners = [MSProxyListener listenersProxyForProtocol:@protocol(DelegateProtocol)];
-        SomeObj* obj1 = [[SomeObj alloc] init];
-        SomeObj* obj2 = [[SomeObj alloc] init];
-        SomeObj* obj3 = [[SomeObj alloc] init];
+        Listeners* listeners = [Listeners proxyListener];
+        ListenerImpl* listener1 = [[ListenerImpl alloc] init];
+        ListenerImpl* listener2 = [[ListenerImpl alloc] init];
+        ListenerImpl* listener3 = [[ListenerImpl alloc] init];
+        NSObject* caller = [[NSObject alloc] init];
 
-        [listeners addObject:obj1];
-        [listeners addObject:obj2];
-        [listeners addObject:obj3];
-        [listeners didStart:@"val" key:@"key"];
-        [listeners didEnd:@"val" key:@"key" success:YES];
-        [listeners removeObject:obj1];
-        [listeners removeObject:obj2];
-        [listeners removeObject:obj3];
-        [listeners didEnd:@"val" key:@"key" success:NO];
+        [listeners addObject:listener1];
+        [listeners addObject:listener2];
+        [listeners addObject:listener3];
+        [listeners didStart:caller value:@"value1"];
+        [listeners removeObject:listener1];
+        [listeners didEnd:caller value:@"value2" success:YES];
+        [listeners removeObject:listener2];
+        [listeners didEnd:caller value:@"value3" success:NO];
     }
     return 0;
 }

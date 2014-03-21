@@ -25,7 +25,7 @@
 // THE SOFTWARE.
 
 #import "MSProxyListener.h"
-#import <objc/objc-runtime.h>
+#import <objc/runtime.h>
 
 @interface MSProxyListener ()
 
@@ -36,13 +36,27 @@
 
 @implementation MSProxyListener
 
-+ (id)listenersProxyForProtocol:(Protocol *)protocol
++ (instancetype)proxyListener
+{
+    Class cls = [self class];
+    unsigned count;
+    Protocol * __unsafe_unretained *pl = class_copyProtocolList(cls, &count);
+    if (count == 0) {
+        return nil;
+    }
+    id listener = [[MSProxyListener alloc] initWithProtocol:pl[0]];
+    free(pl);
+    return listener;
+}
+
++ (instancetype)proxyListenerForProtocol:(Protocol *)protocol
 {
     return [[MSProxyListener alloc] initWithProtocol:protocol];
 }
 
-- (id)initWithProtocol:(Protocol *)protocol
+- (instancetype)initWithProtocol:(Protocol *)protocol
 {
+    NSParameterAssert(protocol);
     if (self) {
         _listeners = [NSHashTable weakObjectsHashTable];
         _protocol = protocol;
@@ -75,6 +89,16 @@
     [_listeners removeObject:object];
 }
 
+- (NSUInteger)count
+{
+    return [_listeners count];
+}
+
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"<%@: %p listeners:%@ protocol:%@>", [self class], self, _listeners, _protocol];
+}
+
 - (NSMethodSignature*)methodSignatureForSelector:(SEL)sel
 {
     for (id target in _listeners) {
@@ -97,7 +121,7 @@
 
 - (BOOL)conformsToProtocol:(Protocol *)aProtocol
 {
-    return _protocol == aProtocol;
+    return protocol_conformsToProtocol(_protocol, aProtocol);
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector
