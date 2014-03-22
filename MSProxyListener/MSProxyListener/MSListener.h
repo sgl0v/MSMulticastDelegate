@@ -1,5 +1,5 @@
 //
-// main.m
+// MSListener.h
 // MSProxyListener
 //
 // The MIT License (MIT)
@@ -26,30 +26,23 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MSProxyListener.h"
-#import "MSListener.h"
-#import "MSListenerImpl.h"
-#import "MSDummyProxyListeners.h"
+@protocol MSListener <NSObject>
 
-int main(int argc, const char * argv[])
-{
+@optional
 
-    @autoreleasepool {
+- (void)caller:(id)caller didStartWithString:(NSString*)stringValue;
+- (void)caller:(id)caller didEndWithString:(NSString*)stringValue booleanFlag:(BOOL)booleanFlag;
 
-        MSProxyListenerImpl* listeners = [MSProxyListenerImpl proxyListener];
-        MSListenerImpl* listener1 = [[MSListenerImpl alloc] init];
-        MSListenerImpl* listener2 = [[MSListenerImpl alloc] init];
-        MSListenerImpl* listener3 = [[MSListenerImpl alloc] init];
-        NSObject* caller = [[NSObject alloc] init];
+@end
 
-        [listeners addObject:listener1];
-        [listeners addObject:listener2];
-        [listeners addObject:listener3];
-        [listeners caller:caller didStartWithString:@"value1"];
-        [listeners removeObject:listener1];
-        [listeners caller:caller didEndWithString:@"value2" booleanFlag:YES];
-        [listeners removeObject:listener2];
-        [listeners caller:caller didEndWithString:@"value3" booleanFlag:NO];
-    }
-    return 0;
-}
+@protocol MSExtendedListener <MSListener>
+
+- (void)requiredCall;
+
+@optional
+
+- (void)optionalCall;
+
+@property (nonatomic, assign) NSInteger counter;
+
+@end

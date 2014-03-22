@@ -1,5 +1,5 @@
 //
-// main.m
+// MSDummyProxyListeners.h
 // MSProxyListener
 //
 // The MIT License (MIT)
@@ -24,32 +24,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-
 #import "MSProxyListener.h"
 #import "MSListener.h"
-#import "MSListenerImpl.h"
-#import "MSDummyProxyListeners.h"
 
-int main(int argc, const char * argv[])
-{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wprotocol"
 
-    @autoreleasepool {
+@interface MSProxyListenerImpl : MSProxyListener <MSListener> @end
+@implementation MSProxyListenerImpl @end
 
-        MSProxyListenerImpl* listeners = [MSProxyListenerImpl proxyListener];
-        MSListenerImpl* listener1 = [[MSListenerImpl alloc] init];
-        MSListenerImpl* listener2 = [[MSListenerImpl alloc] init];
-        MSListenerImpl* listener3 = [[MSListenerImpl alloc] init];
-        NSObject* caller = [[NSObject alloc] init];
+@interface MSExtendedProxyListenerImpl : MSProxyListener <MSExtendedListener> @end
+@implementation MSExtendedProxyListenerImpl @end
 
-        [listeners addObject:listener1];
-        [listeners addObject:listener2];
-        [listeners addObject:listener3];
-        [listeners caller:caller didStartWithString:@"value1"];
-        [listeners removeObject:listener1];
-        [listeners caller:caller didEndWithString:@"value2" booleanFlag:YES];
-        [listeners removeObject:listener2];
-        [listeners caller:caller didEndWithString:@"value3" booleanFlag:NO];
-    }
-    return 0;
-}
+#pragma clang diagnostic pop

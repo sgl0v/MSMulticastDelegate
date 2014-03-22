@@ -41,6 +41,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5E5CE5F218DD085200FF1191 /* MSListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSListener.h; sourceTree = "<group>"; };
+		5E5CE5F318DD085200FF1191 /* MSListenerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSListenerImpl.h; sourceTree = "<group>"; };
+		5E5CE5F718DD0CDE00FF1191 /* MSDummyProxyListeners.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSDummyProxyListeners.h; sourceTree = "<group>"; };
 		5EFC806518D91751006C1355 /* MSProxyListener */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MSProxyListener; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFC806818D91751006C1355 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5EFC806B18D91751006C1355 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -110,6 +113,9 @@
 				5EFC806B18D91751006C1355 /* main.m */,
 				5EFC808B18D9179C006C1355 /* MSProxyListener.m */,
 				5EFC808C18D9179C006C1355 /* MSProxyListener.h */,
+				5E5CE5F218DD085200FF1191 /* MSListener.h */,
+				5E5CE5F318DD085200FF1191 /* MSListenerImpl.h */,
+				5E5CE5F718DD0CDE00FF1191 /* MSDummyProxyListeners.h */,
 				5EFC806F18D91751006C1355 /* MSProxyListener.1 */,
 				5EFC806D18D91751006C1355 /* Supporting Files */,
 			);
@@ -404,6 +410,7 @@
 				5EFC807518D91751006C1355 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5EFC808818D91762006C1355 /* Build configuration list for PBXNativeTarget "MSProxyListenerTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +419,7 @@
 				5EFC808A18D91762006C1355 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
