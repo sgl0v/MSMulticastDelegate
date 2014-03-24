@@ -41,24 +41,22 @@
     Class cls = [self class];
     unsigned count;
     Protocol * __unsafe_unretained *pl = class_copyProtocolList(cls, &count);
-    if (count == 0) {
-        return nil;
-    }
-    id listener = [[MSProxyListener alloc] initWithProtocol:pl[0]];
+    NSParameterAssert(count == 1);
+    id listener = [[self alloc] initWithProtocol:pl[0]];
     free(pl);
     return listener;
 }
 
 + (instancetype)proxyListenerForProtocol:(Protocol *)protocol
 {
-    return [[MSProxyListener alloc] initWithProtocol:protocol];
+    return [[self alloc] initWithProtocol:protocol];
 }
 
 - (instancetype)initWithProtocol:(Protocol *)protocol
 {
     NSParameterAssert(protocol);
+    NSParameterAssert(class_conformsToProtocol([self class], protocol));
     if (self) {
-        _listeners = [NSHashTable weakObjectsHashTable];
         _protocol = protocol;
     }
     return self;
@@ -66,42 +64,42 @@
 
 - (void)addObject:(id)object
 {
-    if ([object conformsToProtocol:_protocol] && ![_listeners containsObject:object] && object != self) {
-        [_listeners addObject:object];
+    if ([object conformsToProtocol:self.protocol] && ![self.listeners containsObject:object] && object != self) {
+        [self.listeners addObject:object];
     }
 }
 
 - (void)removeAllObjects
 {
-    [_listeners removeAllObjects];
+    [self.listeners removeAllObjects];
 }
 
 - (BOOL)containsObject:(id)anObject
 {
-    return [_listeners containsObject:anObject];
+    return [self.listeners containsObject:anObject];
 }
 
 - (void)removeObject:(id)object
 {
-    if (![object conformsToProtocol:_protocol]) {
+    if (![object conformsToProtocol:self.protocol]) {
         return;
     }
-    [_listeners removeObject:object];
+    [self.listeners removeObject:object];
 }
 
 - (NSUInteger)count
 {
-    return [_listeners count];
+    return [self.listeners count];
 }
 
 - (NSString*)description
 {
-    return [NSString stringWithFormat:@"<%@: %p listeners:%@ protocol:%@>", [self class], self, _listeners, _protocol];
+    return [NSString stringWithFormat:@"<%@: %p listeners:%@ protocol:%@>", [self class], self, self.listeners, self.protocol];
 }
 
 - (NSMethodSignature*)methodSignatureForSelector:(SEL)sel
 {
-    for (id target in _listeners) {
+    for (id target in self.listeners) {
         if ([target respondsToSelector:sel]) {
             return [target methodSignatureForSelector:sel];
         }
@@ -112,7 +110,7 @@
 
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
-    for (id target in _listeners) {
+    for (id target in self.listeners) {
         if ([target respondsToSelector:invocation.selector]) {
             [invocation invokeWithTarget:target];
         }
@@ -121,17 +119,25 @@
 
 - (BOOL)conformsToProtocol:(Protocol *)aProtocol
 {
-    return protocol_conformsToProtocol(_protocol, aProtocol);
+    return protocol_conformsToProtocol(self.protocol, aProtocol);
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    struct objc_method_description descr = protocol_getMethodDescription(_protocol, aSelector, YES, YES);
+    struct objc_method_description descr = protocol_getMethodDescription(self.protocol, aSelector, YES, YES);
     if (descr.name != NULL && descr.types != NULL) {
         return YES;
     }
-    descr = protocol_getMethodDescription(_protocol, aSelector, NO, YES);
+    descr = protocol_getMethodDescription(self.protocol, aSelector, NO, YES);
     return descr.name != NULL && descr.types != NULL;
+}
+
+- (NSHashTable*)listeners
+{
+    if (_listeners == nil) {
+        _listeners = [NSHashTable weakObjectsHashTable];
+    }
+    return _listeners;
 }
 
 @end
