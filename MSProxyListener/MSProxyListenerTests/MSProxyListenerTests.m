@@ -32,15 +32,32 @@
 
 
 @interface MSProxyListenerTests : XCTestCase
-@property (nonatomic, strong) MSExtendedProxyListenerImpl* extendedListener;
 @end
 
 @implementation MSProxyListenerTests
 
-- (void)setUp
+- (void)testDesignatedInitializer
 {
-    [super setUp];
-    _extendedListener = [MSExtendedProxyListenerImpl proxyListenerForProtocol:@protocol(MSExtendedListener)];
+    // check correct initialization using designated initializer
+    MSProxyListener* proxyListener = [[MSProxyListenerImpl alloc] initWithProtocol:@protocol(MSListener)];
+    XCTAssertTrue([proxyListener.listeners count] == 0, @"The object is not constructed correctly!");
+    XCTAssertEqualObjects(@protocol(MSListener), proxyListener.protocol, @"The object is not constructed correctly!");
+}
+
+- (void)testConvenienceConstructors
+{
+    // check correct object creation using convenience constructor
+    MSProxyListener* proxyListener = [MSProxyListenerImpl proxyListenerForProtocol:@protocol(MSListener)];
+    XCTAssertTrue([proxyListener.listeners count] == 0, @"The object is not constructed correctly!");
+    XCTAssertEqualObjects(@protocol(MSListener), proxyListener.protocol, @"The object is not constructed correctly!");
+
+    // the behavior of convenience constructors should be the same
+    MSProxyListener* proxyListenerCreatedExplicitly = [MSProxyListenerImpl proxyListenerForProtocol:@protocol(MSListener)];
+    MSProxyListener* proxyListenerCreatedImplicitly = [MSProxyListenerImpl proxyListener];
+    XCTAssertEqualObjects(proxyListenerCreatedExplicitly.protocol, proxyListenerCreatedImplicitly.protocol,
+                           @"The convenience constructors doesn't work correctly!");
+    XCTAssertEqual([proxyListenerCreatedExplicitly.listeners count], [proxyListenerCreatedImplicitly.listeners count],
+                           @"The convenience constructors doesn't work correctly!");
 }
 
 - (void)testListenersContainer
@@ -78,10 +95,10 @@
 {
     MSProxyListenerImpl* proxyListener = [MSProxyListenerImpl proxyListenerForProtocol:@protocol(MSListener)];
     MSExtendedProxyListenerImpl* extendedProxyListener = [MSExtendedProxyListenerImpl proxyListenerForProtocol:@protocol(MSExtendedListener)];
-    XCTAssertTrue([proxyListener conformsToProtocol:@protocol(MSListener)], @"The proxy listener doesn't confirm to the valid protocol!");
-    XCTAssertTrue([extendedProxyListener conformsToProtocol:@protocol(MSExtendedListener)], @"The proxy listener doesn't confirm to the valid protocol!");
-    XCTAssertTrue([extendedProxyListener conformsToProtocol:@protocol(MSListener)], @"The proxy listener doesn't confirm to the valid protocol!");
-    XCTAssertFalse([proxyListener conformsToProtocol:@protocol(MSExtendedListener)], @"The proxy listener confirms to the invalid protocol!");
+    XCTAssertTrue([proxyListener conformsToProtocol:@protocol(MSListener)], @"The proxy listener doesn't conform to the valid protocol!");
+    XCTAssertTrue([extendedProxyListener conformsToProtocol:@protocol(MSExtendedListener)], @"The proxy listener doesn't conform to the valid protocol!");
+    XCTAssertTrue([extendedProxyListener conformsToProtocol:@protocol(MSListener)], @"The proxy listener doesn't conform to the valid protocol!");
+    XCTAssertFalse([proxyListener conformsToProtocol:@protocol(MSExtendedListener)], @"The proxy listener conforms to the invalid protocol!");
 }
 
 - (void)testListenerBeingCalled
