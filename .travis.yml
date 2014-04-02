@@ -1,7 +1,4 @@
 language: objective-c
-before_install:
-    - brew update
-    - brew install xctool
 script:
-    - xctool -project ./MSProxyListener/MSProxyListener.xcodeproj -scheme MSProxyListener
-    - xctool test -project ./MSProxyListener/MSProxyListener.xcodeproj -scheme MSProxyListener
+    - xcodebuild -project ./MSProxyListener/MSProxyListener.xcodeproj -scheme MSProxyListener
+    - xcodebuild test -project ./MSProxyListener/MSProxyListener.xcodeproj -scheme MSProxyListener
