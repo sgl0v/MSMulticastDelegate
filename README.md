@@ -1,5 +1,6 @@
 MSProxyListener
 ===============
+[![Build Status](https://travis-ci.org/nullp0inter/MSProxyListener.svg?branch=master)](https://travis-ci.org/nullp0inter/MSProxyListener)
 
 A simple NSProxy subclass that forwards calls to subscribers. Makes the delegation 
 really elegant and very simple, decreases the boilerplate in your code.
