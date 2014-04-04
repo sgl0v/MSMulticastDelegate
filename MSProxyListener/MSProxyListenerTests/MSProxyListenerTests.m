@@ -52,12 +52,19 @@
     XCTAssertEqualObjects(@protocol(MSListener), proxyListener.protocol, @"The object is not constructed correctly!");
 
     // the behavior of convenience constructors should be the same
-    MSProxyListener* proxyListenerCreatedExplicitly = [MSProxyListenerImpl proxyListenerForProtocol:@protocol(MSListener)];
-    MSProxyListener* proxyListenerCreatedImplicitly = [MSProxyListenerImpl proxyListener];
+    MSProxyListener* proxyListenerCreatedExplicitly = [MSExtendedProxyListenerImpl proxyListenerForProtocol:@protocol(MSExtendedListener)];
+    MSProxyListener* proxyListenerCreatedImplicitly = [MSExtendedProxyListenerImpl proxyListener];
     XCTAssertEqualObjects(proxyListenerCreatedExplicitly.protocol, proxyListenerCreatedImplicitly.protocol,
                            @"The convenience constructors doesn't work correctly!");
     XCTAssertEqual([proxyListenerCreatedExplicitly.listeners count], [proxyListenerCreatedImplicitly.listeners count],
                            @"The convenience constructors doesn't work correctly!");
+}
+
+- (void)testInitWithInvalidParameters
+{
+    XCTAssertThrows([MSProxyListenerImpl proxyListenerForProtocol:@protocol(MSExtendedListener)], @"The proxy listener accepts protocol, that is doesn't conform to");
+    XCTAssertThrows([[MSProxyListenerImpl alloc] initWithProtocol:@protocol(MSExtendedListener)], @"The proxy listener accepts protocol, that is doesn't conform to");
+    XCTAssertThrows([MSProxyListenerImpl proxyListener], @"The proxy listener's convenience constructor works only for classes that implement one protocol!");
 }
 
 - (void)testListenersContainer

@@ -30,8 +30,16 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wprotocol"
 
-@interface MSProxyListenerImpl : MSProxyListener <MSListener> @end
-@implementation MSProxyListenerImpl @end
+@interface MSProxyListenerImpl : MSProxyListener <MSListener, NSCopying> @end
+
+@implementation MSProxyListenerImpl
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+@end
 
 @interface MSExtendedProxyListenerImpl : MSProxyListener <MSExtendedListener> @end
 @implementation MSExtendedProxyListenerImpl @end
