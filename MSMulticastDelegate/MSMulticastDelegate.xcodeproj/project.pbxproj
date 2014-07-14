@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E14A3B7196CC3A80030632E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E14A3B1196CC3A80030632E /* main.m */; };
+		5E14A3BA196CC3BA0030632E /* MSMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E14A3B9196CC3BA0030632E /* MSMulticastDelegate.m */; };
+		5E14A3BB196CC3BA0030632E /* MSMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E14A3B9196CC3BA0030632E /* MSMulticastDelegate.m */; };
+		5E14A3C3196CC4060030632E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E14A3BE196CC4060030632E /* InfoPlist.strings */; };
+		5E14A3C4196CC4060030632E /* MSMulticastDelegateTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E14A3C0196CC4060030632E /* MSMulticastDelegateTests-Info.plist */; };
+		5E14A3C5196CC4060030632E /* MSMulticastDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E14A3C2196CC4060030632E /* MSMulticastDelegateTests.m */; };
 		5EFC806918D91751006C1355 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFC806818D91751006C1355 /* Foundation.framework */; };
-		5EFC806C18D91751006C1355 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC806B18D91751006C1355 /* main.m */; };
-		5EFC807018D91751006C1355 /* MSProxyListener.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EFC806F18D91751006C1355 /* MSProxyListener.1 */; };
 		5EFC807C18D91762006C1355 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFC807B18D91762006C1355 /* XCTest.framework */; };
-		5EFC808218D91762006C1355 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5EFC808018D91762006C1355 /* InfoPlist.strings */; };
-		5EFC808418D91762006C1355 /* MSProxyListenerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC808318D91762006C1355 /* MSProxyListenerTests.m */; };
-		5EFC808D18D9179C006C1355 /* MSProxyListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC808B18D9179C006C1355 /* MSProxyListener.m */; };
-		5EFC808E18D9179C006C1355 /* MSProxyListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC808B18D9179C006C1355 /* MSProxyListener.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,29 +34,28 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				5EFC807018D91751006C1355 /* MSProxyListener.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5E5CE5F218DD085200FF1191 /* MSListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSListener.h; sourceTree = "<group>"; };
-		5E5CE5F318DD085200FF1191 /* MSListenerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSListenerImpl.h; sourceTree = "<group>"; };
-		5E5CE5F718DD0CDE00FF1191 /* MSDummyProxyListeners.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSDummyProxyListeners.h; sourceTree = "<group>"; };
-		5EFC806518D91751006C1355 /* MSProxyListener */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MSProxyListener; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E14A3B1196CC3A80030632E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5E14A3B2196CC3A80030632E /* MSDummyMulticastDelegates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDummyMulticastDelegates.h; sourceTree = "<group>"; };
+		5E14A3B3196CC3A80030632E /* MSEventHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEventHandlerDelegate.h; sourceTree = "<group>"; };
+		5E14A3B4196CC3A80030632E /* MSEventHandlerDelegateImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEventHandlerDelegateImpl.h; sourceTree = "<group>"; };
+		5E14A3B5196CC3A80030632E /* MSMulticastDelegate-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSMulticastDelegate-Prefix.pch"; sourceTree = "<group>"; };
+		5E14A3B6196CC3A80030632E /* MSMulticastDelegate.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = MSMulticastDelegate.1; sourceTree = "<group>"; };
+		5E14A3B8196CC3BA0030632E /* MSMulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSMulticastDelegate.h; path = ../../MSMulticastDelegate.h; sourceTree = "<group>"; };
+		5E14A3B9196CC3BA0030632E /* MSMulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSMulticastDelegate.m; path = ../../MSMulticastDelegate.m; sourceTree = "<group>"; };
+		5E14A3BF196CC4060030632E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5E14A3C0196CC4060030632E /* MSMulticastDelegateTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MSMulticastDelegateTests-Info.plist"; sourceTree = "<group>"; };
+		5E14A3C1196CC4060030632E /* MSMulticastDelegateTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSMulticastDelegateTests-Prefix.pch"; sourceTree = "<group>"; };
+		5E14A3C2196CC4060030632E /* MSMulticastDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMulticastDelegateTests.m; sourceTree = "<group>"; };
+		5EFC806518D91751006C1355 /* MSMulticastDelegate */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MSMulticastDelegate; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFC806818D91751006C1355 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5EFC806B18D91751006C1355 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5EFC806E18D91751006C1355 /* MSProxyListener-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSProxyListener-Prefix.pch"; sourceTree = "<group>"; };
-		5EFC806F18D91751006C1355 /* MSProxyListener.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MSProxyListener.1; sourceTree = "<group>"; };
-		5EFC807A18D91762006C1355 /* MSProxyListenerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSProxyListenerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EFC807A18D91762006C1355 /* MSMulticastDelegateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSMulticastDelegateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFC807B18D91762006C1355 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		5EFC807F18D91762006C1355 /* MSProxyListenerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MSProxyListenerTests-Info.plist"; sourceTree = "<group>"; };
-		5EFC808118D91762006C1355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5EFC808318D91762006C1355 /* MSProxyListenerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSProxyListenerTests.m; sourceTree = "<group>"; };
-		5EFC808518D91762006C1355 /* MSProxyListenerTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSProxyListenerTests-Prefix.pch"; sourceTree = "<group>"; };
-		5EFC808B18D9179C006C1355 /* MSProxyListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSProxyListener.m; path = ../../MSProxyListener.m; sourceTree = "<group>"; };
-		5EFC808C18D9179C006C1355 /* MSProxyListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSProxyListener.h; path = ../../MSProxyListener.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +78,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E14A3B0196CC3A80030632E /* MSMulticastDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5E14A3B1196CC3A80030632E /* main.m */,
+				5E14A3B8196CC3BA0030632E /* MSMulticastDelegate.h */,
+				5E14A3B9196CC3BA0030632E /* MSMulticastDelegate.m */,
+				5E14A3C7196CC4520030632E /* Example */,
+				5E14A3BC196CC3CE0030632E /* Supporting Files */,
+			);
+			path = MSMulticastDelegate;
+			sourceTree = "<group>";
+		};
+		5E14A3BC196CC3CE0030632E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E14A3B6196CC3A80030632E /* MSMulticastDelegate.1 */,
+				5E14A3B5196CC3A80030632E /* MSMulticastDelegate-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E14A3BD196CC4060030632E /* MSMulticastDelegateTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E14A3C2196CC4060030632E /* MSMulticastDelegateTests.m */,
+				5E14A3C6196CC40C0030632E /* Supporting Files */,
+			);
+			path = MSMulticastDelegateTests;
+			sourceTree = "<group>";
+		};
+		5E14A3C6196CC40C0030632E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E14A3BE196CC4060030632E /* InfoPlist.strings */,
+				5E14A3C0196CC4060030632E /* MSMulticastDelegateTests-Info.plist */,
+				5E14A3C1196CC4060030632E /* MSMulticastDelegateTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E14A3C7196CC4520030632E /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				5E14A3B2196CC3A80030632E /* MSDummyMulticastDelegates.h */,
+				5E14A3B3196CC3A80030632E /* MSEventHandlerDelegate.h */,
+				5E14A3B4196CC3A80030632E /* MSEventHandlerDelegateImpl.h */,
+			);
+			name = Example;
+			sourceTree = "<group>";
+		};
 		5EFC805C18D91751006C1355 = {
 			isa = PBXGroup;
 			children = (
-				5EFC806A18D91751006C1355 /* MSProxyListener */,
-				5EFC807D18D91762006C1355 /* MSProxyListenerTests */,
+				5E14A3B0196CC3A80030632E /* MSMulticastDelegate */,
+				5E14A3BD196CC4060030632E /* MSMulticastDelegateTests */,
 				5EFC806718D91751006C1355 /* Frameworks */,
 				5EFC806618D91751006C1355 /* Products */,
 			);
@@ -92,8 +141,8 @@
 		5EFC806618D91751006C1355 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5EFC806518D91751006C1355 /* MSProxyListener */,
-				5EFC807A18D91762006C1355 /* MSProxyListenerTests.xctest */,
+				5EFC806518D91751006C1355 /* MSMulticastDelegate */,
+				5EFC807A18D91762006C1355 /* MSMulticastDelegateTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,54 +156,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5EFC806A18D91751006C1355 /* MSProxyListener */ = {
-			isa = PBXGroup;
-			children = (
-				5EFC806B18D91751006C1355 /* main.m */,
-				5EFC808B18D9179C006C1355 /* MSProxyListener.m */,
-				5EFC808C18D9179C006C1355 /* MSProxyListener.h */,
-				5E5CE5F218DD085200FF1191 /* MSListener.h */,
-				5E5CE5F318DD085200FF1191 /* MSListenerImpl.h */,
-				5E5CE5F718DD0CDE00FF1191 /* MSDummyProxyListeners.h */,
-				5EFC806F18D91751006C1355 /* MSProxyListener.1 */,
-				5EFC806D18D91751006C1355 /* Supporting Files */,
-			);
-			path = MSProxyListener;
-			sourceTree = "<group>";
-		};
-		5EFC806D18D91751006C1355 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5EFC806E18D91751006C1355 /* MSProxyListener-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5EFC807D18D91762006C1355 /* MSProxyListenerTests */ = {
-			isa = PBXGroup;
-			children = (
-				5EFC808318D91762006C1355 /* MSProxyListenerTests.m */,
-				5EFC807E18D91762006C1355 /* Supporting Files */,
-			);
-			path = MSProxyListenerTests;
-			sourceTree = "<group>";
-		};
-		5EFC807E18D91762006C1355 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5EFC807F18D91762006C1355 /* MSProxyListenerTests-Info.plist */,
-				5EFC808018D91762006C1355 /* InfoPlist.strings */,
-				5EFC808518D91762006C1355 /* MSProxyListenerTests-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5EFC806418D91751006C1355 /* MSProxyListener */ = {
+		5EFC806418D91751006C1355 /* MSMulticastDelegate */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5EFC807318D91751006C1355 /* Build configuration list for PBXNativeTarget "MSProxyListener" */;
+			buildConfigurationList = 5EFC807318D91751006C1355 /* Build configuration list for PBXNativeTarget "MSMulticastDelegate" */;
 			buildPhases = (
 				5EFC806118D91751006C1355 /* Sources */,
 				5EFC806218D91751006C1355 /* Frameworks */,
@@ -164,14 +171,14 @@
 			);
 			dependencies = (
 			);
-			name = MSProxyListener;
+			name = MSMulticastDelegate;
 			productName = MSProxyListener;
-			productReference = 5EFC806518D91751006C1355 /* MSProxyListener */;
+			productReference = 5EFC806518D91751006C1355 /* MSMulticastDelegate */;
 			productType = "com.apple.product-type.tool";
 		};
-		5EFC807918D91762006C1355 /* MSProxyListenerTests */ = {
+		5EFC807918D91762006C1355 /* MSMulticastDelegateTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5EFC808818D91762006C1355 /* Build configuration list for PBXNativeTarget "MSProxyListenerTests" */;
+			buildConfigurationList = 5EFC808818D91762006C1355 /* Build configuration list for PBXNativeTarget "MSMulticastDelegateTests" */;
 			buildPhases = (
 				5EFC807618D91762006C1355 /* Sources */,
 				5EFC807718D91762006C1355 /* Frameworks */,
@@ -182,9 +189,9 @@
 			dependencies = (
 				5EFC808718D91762006C1355 /* PBXTargetDependency */,
 			);
-			name = MSProxyListenerTests;
+			name = MSMulticastDelegateTests;
 			productName = MSProxyListenerTests;
-			productReference = 5EFC807A18D91762006C1355 /* MSProxyListenerTests.xctest */;
+			productReference = 5EFC807A18D91762006C1355 /* MSMulticastDelegateTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -201,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5EFC806018D91751006C1355 /* Build configuration list for PBXProject "MSProxyListener" */;
+			buildConfigurationList = 5EFC806018D91751006C1355 /* Build configuration list for PBXProject "MSMulticastDelegate" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -213,8 +220,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5EFC806418D91751006C1355 /* MSProxyListener */,
-				5EFC807918D91762006C1355 /* MSProxyListenerTests */,
+				5EFC806418D91751006C1355 /* MSMulticastDelegate */,
+				5EFC807918D91762006C1355 /* MSMulticastDelegateTests */,
 			);
 		};
 /* End PBXProject section */
@@ -224,7 +231,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EFC808218D91762006C1355 /* InfoPlist.strings in Resources */,
+				5E14A3C3196CC4060030632E /* InfoPlist.strings in Resources */,
+				5E14A3C4196CC4060030632E /* MSMulticastDelegateTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,8 +243,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EFC808D18D9179C006C1355 /* MSProxyListener.m in Sources */,
-				5EFC806C18D91751006C1355 /* main.m in Sources */,
+				5E14A3BA196CC3BA0030632E /* MSMulticastDelegate.m in Sources */,
+				5E14A3B7196CC3A80030632E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,8 +252,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EFC808E18D9179C006C1355 /* MSProxyListener.m in Sources */,
-				5EFC808418D91762006C1355 /* MSProxyListenerTests.m in Sources */,
+				5E14A3C5196CC4060030632E /* MSMulticastDelegateTests.m in Sources */,
+				5E14A3BB196CC3BA0030632E /* MSMulticastDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,16 +262,16 @@
 /* Begin PBXTargetDependency section */
 		5EFC808718D91762006C1355 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5EFC806418D91751006C1355 /* MSProxyListener */;
+			target = 5EFC806418D91751006C1355 /* MSMulticastDelegate */;
 			targetProxy = 5EFC808618D91762006C1355 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5EFC808018D91762006C1355 /* InfoPlist.strings */ = {
+		5E14A3BE196CC4060030632E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5EFC808118D91762006C1355 /* en */,
+				5E14A3BF196CC4060030632E /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -343,8 +351,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MSProxyListener/MSProxyListener-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "MSMulticastDelegate/MSMulticastDelegate-Prefix.pch";
+				PRODUCT_NAME = MSMulticastDelegate;
 			};
 			name = Debug;
 		};
@@ -352,8 +360,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MSProxyListener/MSProxyListener-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "MSMulticastDelegate/MSMulticastDelegate-Prefix.pch";
+				PRODUCT_NAME = MSMulticastDelegate;
 			};
 			name = Release;
 		};
@@ -365,13 +373,13 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MSProxyListenerTests/MSProxyListenerTests-Prefix.pch";
+				GCC_PREFIX_HEADER = "MSMulticastDelegateTests/MSMulticastDelegateTests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "MSProxyListenerTests/MSProxyListenerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "MSMulticastDelegateTests/MSMulticastDelegateTests-Info.plist";
+				PRODUCT_NAME = MSMulticastDelegateTests;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -384,9 +392,9 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MSProxyListenerTests/MSProxyListenerTests-Prefix.pch";
-				INFOPLIST_FILE = "MSProxyListenerTests/MSProxyListenerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "MSMulticastDelegateTests/MSMulticastDelegateTests-Prefix.pch";
+				INFOPLIST_FILE = "MSMulticastDelegateTests/MSMulticastDelegateTests-Info.plist";
+				PRODUCT_NAME = MSMulticastDelegateTests;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -394,7 +402,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5EFC806018D91751006C1355 /* Build configuration list for PBXProject "MSProxyListener" */ = {
+		5EFC806018D91751006C1355 /* Build configuration list for PBXProject "MSMulticastDelegate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5EFC807118D91751006C1355 /* Debug */,
@@ -403,7 +411,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5EFC807318D91751006C1355 /* Build configuration list for PBXNativeTarget "MSProxyListener" */ = {
+		5EFC807318D91751006C1355 /* Build configuration list for PBXNativeTarget "MSMulticastDelegate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5EFC807418D91751006C1355 /* Debug */,
@@ -412,7 +420,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5EFC808818D91762006C1355 /* Build configuration list for PBXNativeTarget "MSProxyListenerTests" */ = {
+		5EFC808818D91762006C1355 /* Build configuration list for PBXNativeTarget "MSMulticastDelegateTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5EFC808918D91762006C1355 /* Debug */,

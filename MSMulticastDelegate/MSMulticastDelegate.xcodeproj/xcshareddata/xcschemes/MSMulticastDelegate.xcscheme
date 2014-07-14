@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5EFC806418D91751006C1355"
-               BuildableName = "MSProxyListener"
-               BlueprintName = "MSProxyListener"
-               ReferencedContainer = "container:MSProxyListener.xcodeproj">
+               BuildableName = "MSMulticastDelegate"
+               BlueprintName = "MSMulticastDelegate"
+               ReferencedContainer = "container:MSMulticastDelegate.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5EFC807918D91762006C1355"
-               BuildableName = "MSProxyListenerTests.xctest"
-               BlueprintName = "MSProxyListenerTests"
-               ReferencedContainer = "container:MSProxyListener.xcodeproj">
+               BuildableName = "MSMulticastDelegateTests.xctest"
+               BlueprintName = "MSMulticastDelegateTests"
+               ReferencedContainer = "container:MSMulticastDelegate.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5EFC806418D91751006C1355"
-            BuildableName = "MSProxyListener"
-            BlueprintName = "MSProxyListener"
-            ReferencedContainer = "container:MSProxyListener.xcodeproj">
+            BuildableName = "MSMulticastDelegate"
+            BlueprintName = "MSMulticastDelegate"
+            ReferencedContainer = "container:MSMulticastDelegate.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5EFC806418D91751006C1355"
-            BuildableName = "MSProxyListener"
-            BlueprintName = "MSProxyListener"
-            ReferencedContainer = "container:MSProxyListener.xcodeproj">
+            BuildableName = "MSMulticastDelegate"
+            BlueprintName = "MSMulticastDelegate"
+            ReferencedContainer = "container:MSMulticastDelegate.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5EFC806418D91751006C1355"
-            BuildableName = "MSProxyListener"
-            BlueprintName = "MSProxyListener"
-            ReferencedContainer = "container:MSProxyListener.xcodeproj">
+            BuildableName = "MSMulticastDelegate"
+            BlueprintName = "MSMulticastDelegate"
+            ReferencedContainer = "container:MSMulticastDelegate.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

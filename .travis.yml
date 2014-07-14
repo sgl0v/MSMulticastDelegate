@@ -1,4 +1,4 @@
 language: objective-c
 script:
-    - xcodebuild -project ./MSProxyListener/MSProxyListener.xcodeproj -scheme MSProxyListener
-    - xcodebuild test -project ./MSProxyListener/MSProxyListener.xcodeproj -scheme MSProxyListener
+    - xcodebuild -project ./MSMulticastDelegate/MSMulticastDelegate.xcodeproj -scheme MSMulticastDelegate
+    - xcodebuild test -project ./MSMulticastDelegate/MSMulticastDelegate.xcodeproj -scheme MSMulticastDelegate

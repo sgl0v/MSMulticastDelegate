@@ -1,6 +1,6 @@
 //
-// MSProxyListener.m
-// MSProxyListener
+// MSMulticastDelegate.m
+// MSMulticastDelegate
 //
 // The MIT License (MIT)
 //
@@ -24,30 +24,30 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MSProxyListener.h"
+#import "MSMulticastDelegate.h"
 #import <objc/runtime.h>
 
-@interface MSProxyListener ()
+@interface MSMulticastDelegate ()
 
-@property(nonatomic, strong) NSHashTable* listeners;
+@property(nonatomic, strong) NSHashTable* delegates;
 @property(nonatomic, strong) Protocol* protocol;
 
 @end
 
-@implementation MSProxyListener
+@implementation MSMulticastDelegate
 
-+ (instancetype)proxyListener
++ (instancetype)multicastDelegate
 {
     Class cls = [self class];
     unsigned count;
     Protocol * __unsafe_unretained *pl = class_copyProtocolList(cls, &count);
     NSParameterAssert(count == 1);
-    id listener = [[self alloc] initWithProtocol:pl[0]];
+    id delegate = [[self alloc] initWithProtocol:pl[0]];
     free(pl);
-    return listener;
+    return delegate;
 }
 
-+ (instancetype)proxyListenerForProtocol:(Protocol *)protocol
++ (instancetype)multicastDelegateForProtocol:(Protocol *)protocol
 {
     return [[self alloc] initWithProtocol:protocol];
 }
@@ -64,19 +64,19 @@
 
 - (void)addObject:(id)object
 {
-    if ([object conformsToProtocol:self.protocol] && ![self.listeners containsObject:object] && object != self) {
-        [self.listeners addObject:object];
+    if ([object conformsToProtocol:self.protocol] && ![self.delegates containsObject:object] && object != self) {
+        [self.delegates addObject:object];
     }
 }
 
 - (void)removeAllObjects
 {
-    [self.listeners removeAllObjects];
+    [self.delegates removeAllObjects];
 }
 
 - (BOOL)containsObject:(id)anObject
 {
-    return [self.listeners containsObject:anObject];
+    return [self.delegates containsObject:anObject];
 }
 
 - (void)removeObject:(id)object
@@ -84,22 +84,22 @@
     if (![object conformsToProtocol:self.protocol]) {
         return;
     }
-    [self.listeners removeObject:object];
+    [self.delegates removeObject:object];
 }
 
 - (NSUInteger)count
 {
-    return [self.listeners count];
+    return [self.delegates count];
 }
 
 - (NSString*)description
 {
-    return [NSString stringWithFormat:@"<%@: %p listeners:%@ protocol:%@>", [self class], self, self.listeners, self.protocol];
+    return [NSString stringWithFormat:@"<%@: %p delegates:%@ protocol:%@>", [self class], self, self.delegates, self.protocol];
 }
 
 - (NSMethodSignature*)methodSignatureForSelector:(SEL)sel
 {
-    for (id target in self.listeners) {
+    for (id target in self.delegates) {
         if ([target respondsToSelector:sel]) {
             return [target methodSignatureForSelector:sel];
         }
@@ -110,7 +110,7 @@
 
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
-    for (id target in self.listeners) {
+    for (id target in self.delegates) {
         if ([target respondsToSelector:invocation.selector]) {
             [invocation invokeWithTarget:target];
         }
@@ -132,12 +132,12 @@
     return descr.name != NULL && descr.types != NULL;
 }
 
-- (NSHashTable*)listeners
+- (NSHashTable*)delegates
 {
-    if (_listeners == nil) {
-        _listeners = [NSHashTable weakObjectsHashTable];
+    if (_delegates == nil) {
+        _delegates = [NSHashTable weakObjectsHashTable];
     }
-    return _listeners;
+    return _delegates;
 }
 
 @end

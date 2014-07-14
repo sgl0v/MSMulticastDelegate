@@ -1,6 +1,6 @@
 //
-// MSDummyProxyListeners.h
-// MSProxyListener
+// MSDummyMulticastDelegates.h
+// MSMulticastDelegate
 //
 // The MIT License (MIT)
 //
@@ -24,15 +24,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MSProxyListener.h"
-#import "MSListener.h"
+#import "MSMulticastDelegate.h"
+#import "MSEventHandlerDelegate.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wprotocol"
 
-@interface MSProxyListenerImpl : MSProxyListener <MSListener, NSCopying> @end
+@interface MSMulticastDelegateImpl : MSMulticastDelegate <MSEventHandlerDelegate, NSCopying> @end
 
-@implementation MSProxyListenerImpl
+@implementation MSMulticastDelegateImpl
 
 - (id)copyWithZone:(NSZone *)zone
 {
@@ -41,7 +41,7 @@
 
 @end
 
-@interface MSExtendedProxyListenerImpl : MSProxyListener <MSExtendedListener> @end
-@implementation MSExtendedProxyListenerImpl @end
+@interface MSExtendedMulticastDelegateImpl : MSMulticastDelegate <MSExtendedEventHandlerDelegate> @end
+@implementation MSExtendedMulticastDelegateImpl @end
 
 #pragma clang diagnostic pop

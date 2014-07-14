@@ -1,6 +1,6 @@
 //
-// MSListenerImpl.h
-// MSProxyListener
+// MSEventHandlerDelegateImpl.h
+// MSMulticastDelegate
 //
 // The MIT License (MIT)
 //
@@ -24,51 +24,51 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MSListener.h"
+#import "MSEventHandlerDelegate.h"
 
-@interface MSListenerImpl : NSObject <MSListener>
+@interface MSEventHandlerDelegateImpl : NSObject <MSEventHandlerDelegate>
 
-@property (nonatomic, weak) id caller;
-@property (nonatomic, strong) NSString* stringValue;
-@property (nonatomic, assign) BOOL booleanFlag;
-
-@end
-
-@implementation MSListenerImpl
-
-- (void)caller:(id)caller didStartWithString:(NSString*)stringValue
-{
-    NSLog(@"<%@ : %p %@> %@", self.class, NSStringFromSelector(_cmd), caller, stringValue);
-    _caller = caller;
-    _stringValue = stringValue;
-}
-
-- (void)caller:(id)caller didEndWithString:(NSString*)stringValue booleanFlag:(BOOL)booleanFlag
-{
-    NSLog(@"<%@ : %p %@> %@ %d", self.class, NSStringFromSelector(_cmd), caller, stringValue, booleanFlag);
-    _caller = caller;
-    _stringValue = stringValue;
-    _booleanFlag = booleanFlag;
-}
+@property (nonatomic, weak) id eventHandler;
+@property (nonatomic, strong) NSString* eventName;
+@property (nonatomic, assign) BOOL status;
 
 @end
 
-@interface MSExtendedListenerImpl : NSObject <MSExtendedListener>
+@implementation MSEventHandlerDelegateImpl
 
-@property (nonatomic, weak) id caller;
-@property (nonatomic, strong) NSString* stringValue;
+- (void)eventHandler:(id)eventHandler didStartEvent:(NSString*)eventName
+{
+    NSLog(@"<%@ : %p %@> %@", self.class, NSStringFromSelector(_cmd), eventHandler, eventName);
+    _eventHandler = eventHandler;
+    _eventName = eventName;
+}
+
+- (void)eventHandler:(id)eventHandler didFinishEvent:(NSString*)eventName withStatus:(BOOL)status
+{
+    NSLog(@"<%@ : %p %@> %@ %d", self.class, NSStringFromSelector(_cmd), eventHandler, eventName, status);
+    _eventHandler = eventHandler;
+    _eventName = eventName;
+    _status = status;
+}
+
+@end
+
+@interface MSExtendedEventHandlerDelegateImpl : NSObject <MSExtendedEventHandlerDelegate>
+
+@property (nonatomic, weak) id eventHandler;
+@property (nonatomic, strong) NSString* eventName;
 @property (nonatomic, assign) BOOL requierdCallHandled;
 @property (nonatomic, assign) NSInteger counter;
 
 @end
 
-@implementation MSExtendedListenerImpl
+@implementation MSExtendedEventHandlerDelegateImpl
 
-- (void)caller:(id)caller didStartWithString:(NSString*)stringValue
+- (void)eventHandler:(id)eventHandler didStartEvent:(NSString*)eventName
 {
-    NSLog(@"<%@ : %p %@> %@ %@", self.class, self, NSStringFromSelector(_cmd), caller, stringValue);
-    _caller = caller;
-    _stringValue = stringValue;
+    NSLog(@"<%@ : %p %@> %@", self.class, NSStringFromSelector(_cmd), eventHandler, eventName);
+    _eventHandler = eventHandler;
+    _eventName = eventName;
 }
 
 - (void)requiredCall

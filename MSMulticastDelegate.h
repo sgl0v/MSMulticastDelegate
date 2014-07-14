@@ -1,6 +1,6 @@
 //
-// MSProxyListener.h
-// MSProxyListener
+// MSMulticastDelegate.h
+// MSMulticastDelegate
 //
 // The MIT License (MIT)
 //
@@ -27,76 +27,76 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  The `MSProxyListener` is the proxy class, that stores weak references for listeners and forwards calls to them.
- *  Uses `NSHashTable` instance as a container.
+ *  The \c MSMulticastDelegate is the proxy class, that stores weak references for delegates and forwards calls to them.
+ *  Uses \link NSHashTable \endlink instance as a container.
  */
-@interface MSProxyListener : NSProxy
+@interface MSMulticastDelegate : NSProxy
 
 /**
- *  The internal HashTable, that stores weak references for listeners, that implement specified `protocol`.
+ *  The internal HashTable. Stores weak references for delegates, that implement specified protocol.
  */
-@property(nonatomic, strong, readonly) NSHashTable* listeners;
+@property(nonatomic, strong, readonly) NSHashTable* delegates;
 
 /**
- * The protocol all listeners should conform to.
+ * The protocol all delegates should conform to.
  */
 @property(nonatomic, strong, readonly) Protocol* protocol;
 
 /**
- *  The convenience constructor. Uses objc runtime to deduct the listener's protocol.
+ *  The convenience constructor. Uses objc runtime to deduct the delegate's protocol.
  *
  *  @return An initialized object.
  */
-+ (instancetype)proxyListener;
++ (instancetype)multicastDelegate;
 
 /**
  *  The convenience constructor.
  *
- *  @param protocol The protocol all listeners should conform to.
+ *  @param protocol The protocol all delegates should conform to.
  *
  *  @return An initialized object.
  */
-+ (instancetype)proxyListenerForProtocol:(Protocol *)protocol;
++ (instancetype)multicastDelegateForProtocol:(Protocol *)protocol;
 
 /**
- *  The designated initializer. `protocol` can't be nil.
+ *  The designated initializer. \c protocol can't be nil.
  *
- *  @param protocol The protocol all listeners should conform to.
+ *  @param protocol The protocol all delegates should conform to.
  *
  *  @return An initialized object.
  */
 - (instancetype)initWithProtocol:(Protocol *)protocol;
 
 /**
- *  Adds a given object to the listener's container. Ignores the object, if it doesn't conform to the listener's protocol.
+ *  Adds a given object to the delegate's container. Ignores the object, if it doesn't conform to the delegate's protocol.
  *
- *  @param object The object to add to the listener's container.
+ *  @param object The object to add to the delegate's container.
  */
 - (void)addObject:(id)object;
 
 /**
- *  Removes a given object from the listener's container.
+ *  Removes a given object from the delegate's container.
  *
- *  @param object The object to remove from the listener's container.
+ *  @param object The object to remove from the delegate's container.
  */
 - (void)removeObject:(id)object;
 
 /**
- *  Removes all listeners from the container.
+ *  Removes all delegates from the container.
  */
 - (void)removeAllObjects;
 
 /**
- *  Tests whether the listener's container contains a given object.
+ *  Tests whether the delegate's container contains a given object.
  *
- *  @param anObject The object to test for membership in the listener's container.
+ *  @param anObject The object to test for membership in the delegate's container.
  *
  *  @return YES if the container contains anObject, otherwise NO.
  */
 - (BOOL)containsObject:(id)anObject;
 
 /**
- *  Returns the number of listeners in the container.
+ *  Returns the number of delegates in the container.
  *
  *  @return The number of elements in the container.
  */
