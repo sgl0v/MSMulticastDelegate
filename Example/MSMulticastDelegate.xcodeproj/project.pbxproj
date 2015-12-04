@@ -8,13 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5E14A3B7196CC3A80030632E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E14A3B1196CC3A80030632E /* main.m */; };
-		5E14A3BA196CC3BA0030632E /* MSMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E14A3B9196CC3BA0030632E /* MSMulticastDelegate.m */; };
-		5E14A3BB196CC3BA0030632E /* MSMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E14A3B9196CC3BA0030632E /* MSMulticastDelegate.m */; };
-		5E14A3C3196CC4060030632E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E14A3BE196CC4060030632E /* InfoPlist.strings */; };
-		5E14A3C4196CC4060030632E /* MSMulticastDelegateTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E14A3C0196CC4060030632E /* MSMulticastDelegateTests-Info.plist */; };
 		5E14A3C5196CC4060030632E /* MSMulticastDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E14A3C2196CC4060030632E /* MSMulticastDelegateTests.m */; };
 		5EFC806918D91751006C1355 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFC806818D91751006C1355 /* Foundation.framework */; };
 		5EFC807C18D91762006C1355 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFC807B18D91762006C1355 /* XCTest.framework */; };
+		B61471CD1C11E5E300186847 /* MSMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B61471CC1C11E5E300186847 /* MSMulticastDelegate.m */; };
+		B61471CE1C11E5E300186847 /* MSMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B61471CC1C11E5E300186847 /* MSMulticastDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +44,6 @@
 		5E14A3B4196CC3A80030632E /* MSEventHandlerDelegateImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEventHandlerDelegateImpl.h; sourceTree = "<group>"; };
 		5E14A3B5196CC3A80030632E /* MSMulticastDelegate-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSMulticastDelegate-Prefix.pch"; sourceTree = "<group>"; };
 		5E14A3B6196CC3A80030632E /* MSMulticastDelegate.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = MSMulticastDelegate.1; sourceTree = "<group>"; };
-		5E14A3B8196CC3BA0030632E /* MSMulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSMulticastDelegate.h; path = ../../MSMulticastDelegate.h; sourceTree = "<group>"; };
-		5E14A3B9196CC3BA0030632E /* MSMulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSMulticastDelegate.m; path = ../../MSMulticastDelegate.m; sourceTree = "<group>"; };
 		5E14A3BF196CC4060030632E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E14A3C0196CC4060030632E /* MSMulticastDelegateTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MSMulticastDelegateTests-Info.plist"; sourceTree = "<group>"; };
 		5E14A3C1196CC4060030632E /* MSMulticastDelegateTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSMulticastDelegateTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -56,6 +52,8 @@
 		5EFC806818D91751006C1355 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5EFC807A18D91762006C1355 /* MSMulticastDelegateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSMulticastDelegateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFC807B18D91762006C1355 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B61471CB1C11E5E300186847 /* MSMulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMulticastDelegate.h; sourceTree = "<group>"; };
+		B61471CC1C11E5E300186847 /* MSMulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMulticastDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +79,8 @@
 		5E14A3B0196CC3A80030632E /* MSMulticastDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				B61471CA1C11E5E300186847 /* MSMulticastDelegate */,
 				5E14A3B1196CC3A80030632E /* main.m */,
-				5E14A3B8196CC3BA0030632E /* MSMulticastDelegate.h */,
-				5E14A3B9196CC3BA0030632E /* MSMulticastDelegate.m */,
 				5E14A3C7196CC4520030632E /* Example */,
 				5E14A3BC196CC3CE0030632E /* Supporting Files */,
 			);
@@ -156,6 +153,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B61471CA1C11E5E300186847 /* MSMulticastDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				B61471CB1C11E5E300186847 /* MSMulticastDelegate.h */,
+				B61471CC1C11E5E300186847 /* MSMulticastDelegate.m */,
+			);
+			name = MSMulticastDelegate;
+			path = ../../MSMulticastDelegate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,7 +207,7 @@
 		5EFC805D18D91751006C1355 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Maksym Shcheglov";
 				TargetAttributes = {
 					5EFC807918D91762006C1355 = {
@@ -231,8 +238,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E14A3C3196CC4060030632E /* InfoPlist.strings in Resources */,
-				5E14A3C4196CC4060030632E /* MSMulticastDelegateTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,8 +248,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E14A3BA196CC3BA0030632E /* MSMulticastDelegate.m in Sources */,
 				5E14A3B7196CC3A80030632E /* main.m in Sources */,
+				B61471CD1C11E5E300186847 /* MSMulticastDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E14A3C5196CC4060030632E /* MSMulticastDelegateTests.m in Sources */,
-				5E14A3BB196CC3BA0030632E /* MSMulticastDelegate.m in Sources */,
+				B61471CE1C11E5E300186847 /* MSMulticastDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +300,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -368,6 +374,7 @@
 		5EFC808918D91762006C1355 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -379,6 +386,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MSMulticastDelegateTests/MSMulticastDelegateTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mshcheglov.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MSMulticastDelegateTests;
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -387,6 +395,7 @@
 		5EFC808A18D91762006C1355 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -394,6 +403,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MSMulticastDelegateTests/MSMulticastDelegateTests-Prefix.pch";
 				INFOPLIST_FILE = "MSMulticastDelegateTests/MSMulticastDelegateTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mshcheglov.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MSMulticastDelegateTests;
 				WRAPPER_EXTENSION = xctest;
 			};
