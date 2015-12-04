@@ -1,7 +1,7 @@
 language: objective-c
 
 before_install:
-	- gem install slather -N 
+    - gem install slather -N 
 
 script:
     - xctool -project Example/MSMulticastDelegate.xcodeproj -scheme MSMulticastDelegate clean build test GCC_GENERATE_DEBUGGING_SYMBOLS=YES GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES

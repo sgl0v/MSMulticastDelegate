@@ -1,6 +1,6 @@
 MSMulticastDelegate
 ===============
-[![Build Status](https://travis-ci.org/sgl0v/MSMulticastDelegate.svg?branch=master)](https://travis-ci.org/nullp0inter/MSMulticastDelegate)
+[![Build Status](https://travis-ci.org/sgl0v/MSMulticastDelegate.svg?branch=master)](https://travis-ci.org/nullp0inter/MSMulticastDelegate) [![Coverage Status](https://coveralls.io/repos/sgl0v/MSMulticastDelegate/badge.svg?branch=master&service=github)](https://coveralls.io/github/sgl0v/MSMulticastDelegate?branch=master)
 
 The NSProxy subclass that forwards calls to subscribers. Makes the delegation 
 really elegant and very simple, decreases the boilerplate in your code.
